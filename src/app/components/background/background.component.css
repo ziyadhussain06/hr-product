@@ -1,0 +1,203 @@
+.blob{
+    position: relative;
+    width:100%;
+    height: 100vh;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; 
+    background: url("../../../assets/blobs-img1.svg") no-repeat , 
+     url("../../../assets/blobs-img2.svg") no-repeat 0% 0%,
+    url("../../../assets/blobs-img3.svg") no-repeat 20% 20%, 
+    url("../../../assets/blobs-img4.svg") no-repeat 50% 50%,
+    url("../../../assets/blobs-img5.svg") no-repeat 100% 100%,
+    url("../../../assets/blobs-img5.svg") no-repeat , 
+    url("../../../assets/blobs-img2.svg") no-repeat 0% 0%; 
+    background-position: 
+     top 10vh left -20vh ,
+     top -0vh left 30vh ,
+     top -45vh right 20vh,
+     top -40vh left 20vh,
+     top -30vh  left  -30vh,
+     top -40vh right -30vh ,
+     top 0vh right 20vh ;
+}
+.h-screens{
+    height: 100%;
+}
+
+
+/* .svg1{
+    position: absolute;
+    width: 70%;
+    top: -40rem;
+    left: -30rem;
+}
+ .svg2{
+    position: absolute;
+    width: 70%;
+    top: -30rem;
+    left: 20rem;  
+}
+.svg3{
+    position: absolute;
+    width: 50%;
+    top: -30rem;
+    left: 70rem;
+}
+.svg4{
+    position: absolute;
+    width: 60%;
+    top: -5rem;
+    left: 70rem;
+}
+.svg5{
+    position: absolute;
+    width: 60%;
+    top: -5rem;
+    left: -15rem;  
+}  */
+.login-background {
+    width: 100%;
+    height: 70vh;
+/* background-color: #E99F40;*/
+clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);  
+}   
+
+/*mobile */
+@media (min-width:0px) and (max-width:767px){
+    .blob{
+        position: relative;
+        width:100%;
+        height: 100vh;
+        overflow-y: hidden; /* Hide vertical scrollbar */
+        overflow-x: hidden; 
+        background: url("../../../assets/blobs-img1.svg") no-repeat , 
+         url("../../../assets/blobs-img2.svg") no-repeat 0% 0%,
+        url("../../../assets/blobs-img3.svg") no-repeat 20% 20%, 
+        url("../../../assets/blobs-img4.svg") no-repeat 50% 50%,
+        url("../../../assets/blobs-img5.svg") no-repeat 100% 100%,
+        url("../../../assets/blobs-img5.svg") no-repeat , 
+        url("../../../assets/blobs-img2.svg") no-repeat 0% 0%,
+       ; 
+        background-position: 
+         top -20vh left -20vh ,
+         top 0vh left -20vh ,
+         top 0vh right -10vh,
+         top 20vh left -20vh,
+         top 40vh  left  -20vh,
+         top -20vh right -20vh ,
+         top 0vh right 0vh ;
+         
+         
+    }
+    /* .svg1{
+        width: 100% !important;
+        top: -8rem !important;
+        left: -12rem !important;
+    }
+    .svg2{
+        top: -4rem !important;
+        left: 4rem !important;
+    }
+    .svg3{
+        top: -4rem !important;
+        left: 15rem !important;
+    }
+    .svg4{
+        width: 100% !important;
+        top: 8rem !important;
+        left: -9rem !important;
+    }
+    .svg5{
+        width: 100% !important;
+        top: -4rem !important;
+        left: 15rem !important;
+    } */
+}
+/* 
+/*table
+@media (min-width:768px) and (max-width:1023px){
+    .svg1{
+        width: 100% !important;
+        top: -15rem !important;
+        left: -12rem !important;
+    }
+    .svg2{
+        width: 100% !important;
+        top: -8rem !important;
+        left: 4rem !important;
+    }
+    .svg3{
+        width: 100% !important;
+        top: -12rem !important;
+        left: 20rem !important;
+    }
+    .svg4{
+        width: 100% !important;
+        top: 8rem !important;
+        left: -9rem !important;
+    }
+    .svg5{
+        width: 100% !important;
+        top: 5rem !important;
+        left: 12rem !important;
+    }
+}
+@media (min-width:1024px) and (max-width:1200px){
+    .svg1{
+        width: 100% !important;
+        top: -15rem !important;
+        left: -20rem !important;
+    }
+    .svg2{
+        width: 100% !important;
+        top: -12rem !important;
+        left: 2rem !important;
+    }
+    .svg3{
+        width: 100% !important;
+        top: -12rem !important;
+        left: 20rem !important;
+    }
+    .svg4{
+        width: 100% !important;
+        top: 8rem !important;
+        left: -9rem !important;
+    }
+    .svg5{
+        width: 100% !important;
+        top: 5rem !important;
+        left: 12rem !important;
+    }
+}
+@media (min-width:1201px) and (max-width:1441px){
+    .svg1{
+        position: absolute;
+        width: 70%;
+        top: -30rem;
+        left: -20rem;
+    }
+     .svg2{
+        position: absolute;
+        width: 70%;
+        top: -20rem;
+        left: 10rem;  
+    }
+    .svg3{
+        position: absolute;
+        width: 50%;
+        top: -20rem;
+        left: 60rem;
+    }
+    .svg4{
+        position: absolute;
+        width: 60%;
+        top: -2rem;
+        left: 50rem;
+    }
+    .svg5{
+        position: absolute;
+        width: 60%;
+        top: 5rem;
+        left: -10rem;  
+    } 
+} */

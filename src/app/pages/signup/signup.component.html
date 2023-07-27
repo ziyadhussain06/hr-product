@@ -1,0 +1,182 @@
+<app-background></app-background>
+<app-header></app-header>
+<div class=" login-screen">
+  <div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 mx-4">
+    <div class="sm:mx-auto sm:w-full sm:max-w-[480px] ">
+      <div class=" bg-white px-6 py-12 rounded-cards  sm:px-12 bg-whites shadow-lg ">
+        <div>
+          <mat-icon svgIcon="eazio-logo-black" class="eazio--logo"></mat-icon>
+        </div>
+        <div class="pt-5 sm:mx-auto sm:w-full sm:max-w-sm">
+          <h2 class=" text-2xl font-bold leading-9 tracking-tight text-gray-900">Create An Account</h2>
+        </div>
+        <!--form start-->
+        <form class="space-y-6 mt-5" action="#" method="POST" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+          <!--full name field start-->
+          <div>
+            <label for="Full name" class="block text-sm font-medium leading-6 text-gray-900">Full name</label>
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <mat-icon svgIcon="user" class="mat-icon-size"></mat-icon>
+              </div>
+              <input name="fullname" id="fullname"
+                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="you@example.com" formControlName="fullname"  type="text"
+                [(ngModel)]="fullname" (focus)="fullnameValidation()" (input)="validatefullname()"
+                [ngClass]="{ 'valid': isfullnameValid, 'invalid': !isfullnameValid , 'default':!fullname}" ngModel
+                maxlength="25" />
+            </div>
+
+            <div *ngIf="!isfullnameValid" class="text-red-500 mt-2">
+              <p *ngIf="!fullname">Full name is required.</p>
+            </div>
+          </div>
+          <!--full name field end-->
+          <!--user name field start-->
+          <div>
+            <label for="User-name" class="block text-sm font-medium leading-6 text-gray-900">Enter Username</label>
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <mat-icon svgIcon="at-sign" class="mat-icon-size"></mat-icon>
+              </div>
+              <input type="text" name="Username" id="Username"
+                class=" h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="Enter Username EX. John_588" formControlName="username" type="text" [(ngModel)]="input"
+                (focus)="inputValidation()" (input)="validateinput()"
+                [ngClass]="{ 'valid': isinputValid, 'invalid': !isinputValid, 'default' : !input }" ngModel
+                maxlength="25" />
+            </div>
+            <div *ngIf="isinputValid" class="text-green-500 mt-2">
+              <span *ngIf="input && isinputValid">User name is Available</span>
+            </div>
+            <div *ngIf="!isinputValid" class="text-red-500 mt-2">
+              <p *ngIf="!input">Username is required.</p>
+            </div>
+          </div>
+          <!--user name field end-->
+          <!--email field start-->
+          <div>
+            <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <mat-icon svgIcon="envelope" class="mat-icon-size text-gray-400"></mat-icon>
+              </div>
+              <input type="email" name="email" id="email"
+                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="you@example.com" formControlName="email" id="email" type="email" [(ngModel)]="email"
+                (focus)="resetValidation()" (input)="validateEmail()"
+                [ngClass]="{ 'valid': isEmailValid, 'invalid': !isEmailValid, 'default' : !email }" />
+            </div>
+
+
+            <div *ngIf="!isEmailValid" class="text-red-500 mt-2">
+              <span *ngIf="!email">Email is required.</span>
+              <span *ngIf="email && !isEmailFormatValid">Invalid email format.</span>
+            </div>
+            <div *ngIf="isEmailValid" class="text-green-500 mt-2">
+              <span *ngIf="email && isEmailFormatValid ">valid email format.</span>
+            </div>
+          </div>
+          <!--email field end-->
+          <!--Password field start-->
+          <div>
+            <div class="flex relative mb-8">
+              <div class="absolute left-0">
+                <label for="password" class="block text-sm font-medium leading-6 text-gray-900">New Password</label>
+              </div>
+              <div class="flex absolute right-0">
+                <mat-icon class="mat-icon-size text-gray-500" matSuffix (click)="togglePasswordVisibility()">
+                  {{ passwordVisible ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+                <button class="text-gray-500" mat-icon-button matSuffix (click)="togglePasswordVisibility()"
+                  aria-label="Toggle password visibility">
+                  <span class="text-sm">{{ passwordVisible ? 'Hide' : 'Show' }}</span>
+                </button>
+              </div>
+            </div>
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <mat-icon svgIcon="lock-close" class="mat-icon-size"></mat-icon>
+              </div>
+              <input type="password" name="password" id="password"
+                class="h-10 block w-full rounded-md border-0 py-1.5  pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="New password" formControlName="password" [(ngModel)]="password"
+                [type]="passwordVisible ? 'text' : 'password'" (input)="validatePassword()" (focus)="onFocus()"
+                (input)="onBlur()" [class.valid]="isPasswordValid" [class.invalid]="!isPasswordValid"
+                [class.default]="!password">
+            </div>
+            <div *ngIf="isPasswordValid" class="text-green-500 mt-2">
+              <span *ngIf="password && isPasswordValid">Matching with below conditions</span>
+            </div>
+            <div class="flex mt-2">
+              <div>
+                <span *ngIf="!isPasswordValid && password.length < 8" class="text-gray-500">
+                  <li>Minimum 8 characters</li>
+                </span>
+                <span *ngIf="!isPasswordValid && !containsSymbol()" class="text-gray-500">
+                  <li>One special character</li>
+                </span>
+                <span *ngIf="!isPasswordValid && !containsNumber()" class="text-gray-500">
+                  <li>One number</li>
+                </span>
+              </div>
+              <div class="ml-5">
+                <span *ngIf="!isPasswordValid && !containsUppercase()" class="text-gray-500">
+                  <li> One uppercase character</li>
+                </span>
+                <span *ngIf="!isPasswordValid && !containsLowercase()" class="text-gray-500">
+                  <li>One lowercase character</li>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--Password field end-->
+          <!--confirm-Password field start-->
+          <div>
+            <div class="flex relative mb-8">
+              <div class="absolute left-0">
+                <label for="confirm-Password" class="block text-sm font-medium leading-6 text-gray-900">Confirm
+                  Password</label>
+              </div>
+              <div class="flex absolute right-0">
+                <mat-icon class="mat-icon-size text-gray-500" matSuffix (click)="toggleConfirmPasswordVisibility()">
+                  {{ confirmPasswordVisible ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+                <button class=" text-gray-500" mat-icon-button matSuffix (click)="toggleConfirmPasswordVisibility()"
+                  aria-label="Toggle password visibility">
+                  <span class="text-sm">{{ confirmPasswordVisible ? 'Hide' : 'Show' }}</span>
+                </button>
+              </div>
+            </div>
+            <div class="relative mt-2 rounded-md shadow-sm">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <mat-icon svgIcon="lock-close" class="mat-icon-size"></mat-icon>
+              </div>
+              <input type="confirm-Password" name="confirm-Password" id="confirm-Password"
+                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                placeholder="Confirm password " formControlName="confirmPassword" [(ngModel)]="confirmPassword"
+                [type]="confirmPasswordVisible ? 'text' : 'password'" (input)="validatePassword()" (focus)="onFocus()"
+                (blur)="onBlur()" [class.valid]="isPasswordConfirmed" [class.invalid]="!isPasswordConfirmed"
+                [class.default]="!confirmPassword">
+            </div>
+            <div *ngIf="isPasswordConfirmed" class="text-green-500 mt-2">
+              <span *ngIf="confirmPassword && isPasswordConfirmed">Password match</span>
+            </div>
+            <div>
+              <span *ngIf="!isPasswordConfirmed" class="text-red-500">Passwords do not match</span>
+            </div>
+          </div>
+          <!--button start-->
+          <div>
+            <button type="submit"
+              class="disabled flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              type="submit" [disabled]="!formGroup.valid">Start on bording</button>
+          </div>
+          <!--button end-->
+        </form>
+        <!--form end-->
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

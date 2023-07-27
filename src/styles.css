@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  background-color: #F6F7F9;}
+.mat-icon-size{
+    font-size: 20px !important; 
+  height: 20px !important;
+  width: 20px !important;
+
+}
+.invalid{
+    border: red 3px solid;
+}
+.valid{
+    border: #32C857 3px solid;
+}
+.default{
+    border: #D0D5DD 1px solid;
+}
+.login-screen {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top:0vh;
+    bottom: 0;
+}
+.header-position{
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0vh;
+}
+.eazio--logo{
+    width: auto !important;
+   
+}
+button.disabled:disabled{
+    background-color: #BFDFFE;
+}
+.menu-spacer {
+    flex: 1 1 auto;
+}
+/*onboarding stepper*/
+.mat-mdc-select-placeholder{
+    color: #9ca3af !important;
+    font-size: 14px !important;
+}
+
+
+/*color*/
+
+#cdk-overlay-1, #cdk-overlay-0{
+
+    width: 320px !important;
+}

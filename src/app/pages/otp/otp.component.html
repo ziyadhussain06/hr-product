@@ -1,0 +1,81 @@
+<app-background></app-background>
+<app-header></app-header>
+<div class="login-screen">
+    <div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="mt-5 px-6 sm:mx-auto sm:w-full sm:max-w-[480px]">
+            <div class="bg-white px-6 py-12 rounded-cards  sm:px-12 bg-whites shadow-lg">
+                <div>
+                    <mat-icon svgIcon="eazio-logo-black" class="eazio--logo"></mat-icon>
+                </div>
+                <div class="pt-5 sm:mx-auto sm:w-full sm:max-w-sm space-y-5">
+                    <h2 class="text-2xl font-bold leading-9 tracking-tight text-gray-900 ">One Time Password - OTP
+                    </h2>
+                    <p class="">A One Time Password and Reset Password Link Has Been Sent To Given Email Address</p>
+                    <div>
+                        <!--form start-->
+                        <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+                            <div class="flex flex-col space-y-5">
+                                <label  class="block text-sm font-normal leading-6 text-gray-500 -mb-5">Secure code</label>
+                                <div class= "flex flex-row items-center justify-between mr-3 w-full  ">
+                                    <div class="w-12 h-12 ">
+                                        <input formControlName="otpone"  maxlength="1"
+                                        (input)="onInputChange($event)"
+                                        (keypress)="onKeyPress($event)"
+                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
+                                             name="otpone" id="otpone" placeholder="0"  >
+                                    </div>
+                                    <div class="w-12 h-12 ">
+                                        <input formControlName="otptwo"  maxlength="1"
+                                        (input)="onInputChange($event)"
+                                        (keypress)="onKeyPress($event)"
+                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
+                                            type="text" name="otptwo" id="otptwo" placeholder="0">
+                                    </div>
+                                    <div class="w-12 h-12 ">
+                                        <input formControlName="otpthree"  maxlength="1"
+                                        (input)="onInputChange($event)"
+                                        (keypress)="onKeyPress($event)"
+                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
+                                            type="text" name="otpthree" id="otpthree" placeholder="0">
+                                    </div>
+                                    <div class="w-12 h-12 ">
+                                        <input formControlName="otpfour"  maxlength="1"
+                                        (input)="onInputChange($event)"
+                                        (keypress)="onKeyPress($event)"
+                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
+                                            type="text" name="otpfour" id="otpfour" placeholder="0">
+                                    </div>
+                                    <div class="w-12 h-12 ">
+                                        <input formControlName="otpfive"  maxlength="1"
+                                        (input)="onInputChange($event)"
+                                        (keypress)="onKeyPress($event)"
+                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
+                                            type="text" name="otpfive" id="otpfive" placeholder="0">
+                                    </div>
+                                    <div class="w-12 h-12 ">
+                                        <input formControlName="otpsix"  maxlength="1"
+                                        (input)="onInputChange($event)"
+                                        (keypress)="onKeyPress($event)"
+                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
+                                            type="text" name="otpsix" id="otpsix"  onlyNumber placeholder="0">
+                                    </div>
+                                </div>
+                                <div class="relative ">
+                                    <button class="resend-otp text-xs text-gray-900  font-normal absolute  right-0 -mt-4 disabled:text-gray-300" [disabled]="isTimerRunning">
+                                        Resend OTP in <span class="text-primary">{{ minutes }}:{{ seconds | number: '2.0' }}</span> 
+                                    </button>
+                                                                      
+                                </div>
+                                
+                                <div class="flex flex-col space-y-5">
+                                    <button type="submit" 
+                                            class="disabled flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" [disabled]="isTimerRunning==false || !formGroup.valid" >OTP Sent Successfully</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--form end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>

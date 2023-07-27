@@ -1,0 +1,11 @@
+@media (min-width:0px) and (max-width:767px){
+    .menu-fixed{
+        position:relative !important;
+        width: 100%;
+    }
+}
+.menu-fixed{
+    overflow-y: auto; /* Hide vertical scrollbar */
+    overflow-x: hidden; 
+    position: fixed ;
+}

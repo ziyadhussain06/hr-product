@@ -1,0 +1,317 @@
+<app-background></app-background>
+
+<div *ngIf="closebtn" class=" mx-auto flex max-w-7xl lg:px-8 top-[0vh] absolute right-0 left-0">
+    <div class="p-6 mt-[12vh] bg-white w-full rounded-tl-cards rounded-tr-cards h-[88vh]">
+        <div class="relative ">
+            <mat-icon svgIcon="eazio-logo-black" class="eazio--logo"></mat-icon>
+            <button type="button" class="inline-flex rounded-md  text-blue-600  focus:outline-none absolute right-0"
+                (click)="closebtn = false">
+                <span class="sr-only">Dismiss</span>
+                <mat-icon svgIcon="x-mark" class="text-red-600"></mat-icon>
+            </button>
+        </div>
+        <div class=" pt-5 relative ">
+            <div class="container mx-auto">
+                <!--get start-->
+                <div *ngIf="currentStep === 1">
+                    <!-- Step 1 Content -->
+                    <div class="flex ">
+                        <div class="w-3/6 ">
+                            <div class="relative pb-8">
+                                <span class="absolute left-3 top-[] -ml-px h-full w-[0.3vh] bg-gray-900"
+                                    aria-hidden="true"></span>
+                                <div class="relative flex space-x-3">
+                                    <div>
+                                        <span
+                                            class="h-6 w-6 rounded-full bg-primary flex items-center justify-center ring-8 ring-transparent">
+                                        </span>
+                                    </div>
+                                    <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-5 pl-8">
+                                        <div>
+                                            <p class=" font-bold text-lg">3 SIMPLE STEPS </p>
+                                            <p class="text-primary text-6xl font-bold pt-2">Hello John,</p>
+                                            <p class="text-3xl font-normal pt-2">Welcome to Your New <span
+                                                    class="text-primary">Eazio</span></p>
+                                            <p class="text-gray-500 pt-3 leading-6">Add Business Information, Personal
+                                                Information
+                                                <br>&
+                                                Activate Your Eazio Plan.
+                                            </p>
+                                            <div class="pt-2">
+                                                <button (click)="nextStep()"
+                                                    class=" flex w-4/5 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-normal leading-8 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><mat-icon
+                                                        svgIcon="robot" class="mr-2 mt-1 robot"></mat-icon> Get Started
+                                                    with
+                                                    Business
+                                                    Information</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-3/6 absolute right-0">
+                            <mat-icon svgIcon="rocket" class="rocket"></mat-icon>
+                        </div>
+                    </div>
+                    <div class="relative pb-8 " ng-disabled="all">
+                        <span class="absolute left-3 top-[] -ml-px h-[44vh] w-[0.3vh] bg-gray-300"
+                            aria-hidden="true"></span>
+                        <div class="relative flex space-x-3">
+                            <div>
+                                <span
+                                    class="h-6 w-6 rounded-full bg-gray-300 flex items-center justify-center ring-8 ring-transparent">
+                                </span>
+                            </div>
+                            <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-5 pl-8">
+                                <div>
+                                    <p class=" font-bold text-lg text-gray-300">STEP # 1 </p>
+                                    <p class="text-gray-300 text-6xl font-bold pt-2 ">Business Information</p>
+                                    <p class="text-gray-300 pt-3 leading-6">Add Business Type, Business Category,
+                                        Business Name,<br> Business Address
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--business information-->
+                <div *ngIf="currentStep === 2">
+                    <!-- Step 2 Content -->
+                    <div class="">
+                        <span class="absolute left-3 top-[] -ml-px h-full w-[0.3vh] bg-gray-900"
+                            aria-hidden="true"></span>
+                        <div class="relative space-x-3">
+                            <form  action="#" method="POST" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+                                <div>
+                                    <span
+                                        class="h-6 w-6 rounded-full bg-primary flex items-center justify-center ring-8 ring-transparent">
+                                    </span>
+                                </div>
+                                <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-5 pl-8">
+                                    <div class="flex">
+                                        <div class="my-auto mr-2 ">
+                                            <mat-icon svgIcon="left-arrow" class=" text-primary cursor-pointer "
+                                                (click)="previousStep()"></mat-icon>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-lg">STEP # 1 </p>
+                                            <p class="text-primary text-6xl font-bold pt-2 ">Business Information</p>
+                                            <p class="text-gray-500 text-xl leading-8">Add Business Type, Business
+                                                Category,
+                                                Business Name, Business Address</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-5 grid grid-cols-3 gap-4 pl-8">
+                                    <!--busness name input field-->
+                                    <div class="">
+                                        <label for="Business Name"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Business
+                                            Name</label>
+                                        <div class="relative mt-2 rounded-md shadow-sm">
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="eazio-icon" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <input name="BusinessName" formControlName="bname"
+                                                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                placeholder="you@example.com" 
+                                                id="businessname" type="text" />
+                                        </div>
+                                    </div>
+                                    <!--busness category input field-->
+                                    <div class="">
+                                        <label for="businesscategory"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Business
+                                            Category</label>
+                                        <div class="relative mt-2 rounded-md shadow-sm b-info">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="category-icon" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <mat-select placeholder="Select Business Category Ex." formControlName="bcategory"
+                                                class=" border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm  focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
+                                                <mat-option>-- Select an option --</mat-option>
+                                                <mat-option value="Option 1">Option 1</mat-option>
+                                                <mat-option value="Option 2">Option 2</mat-option>
+                                                <mat-option value="Option 3">Option 3</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div> 
+                                    <!--busness type input field-->
+                                    <div class="">
+                                        <label for="businesstype" class="block text-sm font-medium leading-6 text-gray-900">Business Type</label>
+                                        <div class="relative mt-2 rounded-md shadow-sm ">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="category-icon" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <mat-select placeholder="Select Type Ex." formControlName="btype" class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
+                                                <mat-option>-- Select an option --</mat-option>
+                                                <mat-option value="Option 1">Option 1</mat-option>
+                                                <mat-option value="Option 2">Option 2</mat-option>
+                                                <mat-option value="Option 3">Option 3</mat-option>
+                                            </mat-select>
+                                        </div>
+                                    </div> 
+                                    <!--phone number input field-->
+                                     <div class="">
+                                        <label for="phonenumber" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
+                                        <div class="relative mt-2 rounded-md shadow-sm ">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="category-icon" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <mat-select placeholder="Select Type Ex." formControlName="pnumber" class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
+                                                <mat-option>-- Select an option --</mat-option>
+                                                <mat-option value="Option 1">Option 1</mat-option>
+                                                <mat-option value="Option 2">Option 2</mat-option>
+                                                <mat-option value="Option 3">Option 3</mat-option>  
+                                            </mat-select>
+                                        </div>
+                                    </div> 
+                                    <!--website input field-->
+                                    <div class="col-span-2">
+                                        <label for="Business Name" class="block text-sm font-medium leading-6 text-gray-900">Website</label>
+                                        <div class="relative mt-2 rounded-md shadow-sm">
+                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="globle" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <input name="Website"
+                                                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                placeholder="Enter Website Ex. www.eazio.com (Optional)"
+                                                formControlName="website" id="Website" type="text" />
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!--business information text-->
+                                <div>
+                                    <div class="pl-8 pt-5">
+                                        <p class="text-primary text-3xl font-bold pt-2 ">Business Information</p>
+                                        <p class="text-gray-500 text-xl leading-8">Add Business Street Address, City,
+                                            State, Zipcode</p>
+                                    </div>
+                                    <div class="mt-5 grid grid-cols-2 gap-4 pl-8">
+                                        <!--Street Address # 1 input field-->
+                                        <div class="">
+                                            <label for="Street Address" class="block text-sm font-medium leading-6 text-gray-900">Street Address # 1</label>
+                                            <div class="relative mt-2 rounded-md shadow-sm">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="location-outline" class="mat-icon-size"></mat-icon>
+                                                </div>
+                                                <input name="streetaddress"  formControlName="saddress"  
+                                                    class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                    placeholder="Enter Street Address Ex. Office # 306, Street 11..."
+                                                   id="streetaddress" type="text" />
+                                                    <div class="pointer-events-none  absolute inset-y-0 right-0 flex items-center pr-3">
+                                                    <mat-icon svgIcon="current-location" class="mat-icon-size"></mat-icon>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <!--Street Address # 2 input field-->
+                                        <div class="">
+                                            <label for="Street Address # 2"
+                                                class="block text-sm font-medium leading-6 text-gray-900">Street Address
+                                                #
+                                                2</label>
+                                            <div class="relative mt-2 rounded-md shadow-sm">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="location-outline"  class="mat-icon-size"></mat-icon>
+                                                </div>
+                                                <input name="streetaddress2" formControlName="saddress2"
+                                                    class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                    placeholder="Enter Street Address 2 (Optional)"
+                                                     id="streetaddress2" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 grid grid-cols-3 gap-4 pl-8">
+                                        <!--country input field-->
+                                        <div class="">
+                                            <label for="Country"
+                                                class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+                                            <div class="relative mt-2 rounded-md shadow-sm ">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="world-outline" class="mat-icon-size"></mat-icon>
+                                                </div>
+                                                <mat-select placeholder="Select Category Ex. United Arab Emirates" formControlName="country"
+                                                    class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
+                                                    <mat-option>-- Select an option --</mat-option>
+                                                    <mat-option value="Option 1">Option 1</mat-option>
+                                                    <mat-option value="Option 2">Option 2</mat-option>
+                                                    <mat-option value="Option 3">Option 3</mat-option>    
+                                                </mat-select>
+                                            </div>
+                                        </div>
+                                        <!--city input field-->                                           
+                                        <div class="">
+                                            <label for="P.O. Box Number"
+                                                class="block text-sm font-medium leading-6 text-gray-900">City</label>
+                                            <div class="relative mt-2 rounded-md shadow-sm ">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="building-outline" class="mat-icon-size"></mat-icon>
+                                                </div>
+                                                <mat-select placeholder="Select City Ex. Dubai" formControlName="city"
+                                                    class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
+                                                    <mat-option>-- Select an option --</mat-option>
+                                                    <mat-option value="Option 1">Option 1</mat-option>
+                                                    <mat-option value="Option 2">Option 2</mat-option>
+                                                    <mat-option value="Option 3">Option 3</mat-option>
+                                                </mat-select>
+                                            </div>
+                                        </div>
+                                        <!--P.O. Box Number input field-->
+                                        <div class="">
+                                            <label for="P.O. Box Number" class="block text-sm font-medium leading-6 text-gray-900">P.O. Box </label>
+                                            <div class="relative mt-2 rounded-md shadow-sm">
+                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="envelope-outline" class="mat-icon-size"></mat-icon>
+                                                </div>
+                                                <input name="P.O. Box Number" formControlName="boxnumber"
+                                                    class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                    placeholder="Enter P.O. Box Number Ex. 0000"
+                                                     id="P.O.-box-number"
+                                                    type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                
+
+
+
+                                <div class="pl-8 mt-6 flex">
+                                    <button type="button" (click)="previousStep()"
+                                        class="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 py-4 px-[18px] mr-5 text-sm font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        <mat-icon svgIcon="arrow-left" color="white" class="mat-icon-size "></mat-icon>
+                                        Back
+
+                                    </button>
+                                    <button type="button"  [disabled]="!formGroup.valid" (click)="nextStep()"
+                                        class="disabled inline-flex items-center gap-x-2 rounded-md bg-indigo-600 py-4 px-[28px] text-sm font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        Proceed to: Personal Information
+                                        <mat-icon svgIcon="arrow-right" color="white" class="mat-icon-size "></mat-icon>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div *ngIf="currentStep === 3">
+                    <!-- Step 3 Content -->
+                    <h3>Step 3</h3>
+                    <p>This is the content of Step 3.</p>
+                    <button mat-button color="primary" (click)="previousStep()">Previous</button>
+                    <button mat-button color="primary" (click)="onFormSubmit()">Submit</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

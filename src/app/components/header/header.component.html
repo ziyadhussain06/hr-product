@@ -1,0 +1,68 @@
+<header class="header-position  ">
+ <div class="menu-fixed z-30 w-screen">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+      <!--logo -->
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img class="my-auto h-7 w-auto" src="../assets/eazio--logo.svg" alt="Your Company">
+        </a>
+      </div>     
+      <!--logo -->
+      <!--navigation-->
+      <div class="hidden lg:flex lg:flex- lg:justify-end">
+        <div class="hidden lg:flex lg:gap-x-12">
+            <a href="#" class="text-sm font-normal leading-6 text-white">About</a>
+            <a href="#" class="text-sm font-normal leading-6 text-white">Careers</a>
+            <a href="#" class="text-sm font-normal leading-6 text-white">Pricing</a>
+            <a  class="text-sm font-normal leading-6 text-white border-r-2 pr-10">Features</a>
+            <ng-container *ngIf="isSignUpPage(); else signInButton">
+            <span class="text-sm font-normal leading-6 text-white">Already have an account? <a routerLink="/signin" routerLinkActive="active" ariaCurrentWhenActive="page" class="font-normal underline">Login Here</a></span>
+          </ng-container>
+          <ng-template #signInButton>
+            <span class="text-sm font-normal leading-6 text-white">Need an Eazio account? <a routerLink="/signup" routerLinkActive="active" ariaCurrentWhenActive="page" class="font-normal underline">Create an account</a></span>
+          </ng-template>
+        </div>   
+      </div>
+      <!--navigation-->
+      <!--mobile nav-->
+        <div class="-mr-2 flex flex-grow justify-end lg:hidden">
+          <button
+            (click)="toggleHamburger()"
+            class="inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:text-white active:text-white active:bg-white">
+            <svg class="h-6 w-6 -white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path [ngClass]="{'hidden': hamburgerOpen, 'inline-flex': !hamburgerOpen }"
+                class="inline-flex" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
+                />
+                <path [ngClass]="{'hidden': !hamburgerOpen, 'inline-flex': hamburgerOpen }"
+                class="hidden" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M6 18L18 6M6 6l12 12"
+                />
+            </svg>
+          </button>
+        </div>
+      <div [hidden]="!hamburgerOpen" class="pb-2 ">
+        <div class="lg:hidden" role="dialog" aria-modal="true">
+          <!-- Background backdrop, show/hide based on slide-over state. -->
+          <div class="fixed mt-20 inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:ring-1 sm:ring-gray-900/10">
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-7 text-gray-900 hover:bg-gray-50">About</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-7 text-gray-900 hover:bg-gray-50">Careers</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-7 text-gray-900 hover:bg-gray-50">Pricing</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-normal leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                </div>
+                <div class="py-6">
+                  <span class="text-sm font-normal leading-6 text-white">Need an Eazio account? <a routerLink="../signup" routerLinkActive="active" ariaCurrentWhenActive="page" class="font-normal underline">Create an account</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+      <!--mobile nav-->
+    </nav>
+  </div>
+</header>

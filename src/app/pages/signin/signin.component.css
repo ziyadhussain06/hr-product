@@ -1,0 +1,32 @@
+.menu-spacer {
+    flex: 1 1 auto;
+}
+
+button:disabled{
+    background-color: #BFDFFE;
+}
+.remember-me:disabled{
+    color: #BFDFFE;;
+}
+
+input:focus-visible{
+    outline-offset: NONE !important;
+}
+input:focus{
+    border: 0px;
+}
+.login-background {
+    width: 100%;
+    height: 70vh;
+    /* background-color: #E99F40;*/
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);  
+}
+
+.info-tooltip{
+    height: 6vh;
+   width: 7vh;
+}
+.mat-mdc-icon-button{
+    height: auto !important;
+    padding: 0 !important;
+}

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Eazio-HR';
+  isMenuHidden = true;
+  toggleMenu() {
+    this.isMenuHidden = !this.isMenuHidden;
+  }
 }
