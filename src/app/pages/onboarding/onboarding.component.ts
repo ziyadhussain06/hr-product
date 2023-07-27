@@ -22,6 +22,7 @@ export class OnboardingComponent implements OnInit{
       country: ['', [Validators.required]],
       city: ['', [Validators.required]],
       boxnumber: ['', [Validators.required]],
+            
     });
   }
   onSubmit() {

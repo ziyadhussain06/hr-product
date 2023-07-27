@@ -83,7 +83,7 @@
                         <span class="absolute left-3 top-[] -ml-px h-full w-[0.3vh] bg-gray-900"
                             aria-hidden="true"></span>
                         <div class="relative space-x-3">
-                            <form  action="#" method="POST" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+                            <form action="#" method="POST" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
                                 <div>
                                     <span
                                         class="h-6 w-6 rounded-full bg-primary flex items-center justify-center ring-8 ring-transparent">
@@ -118,8 +118,7 @@
                                             </div>
                                             <input name="BusinessName" formControlName="bname"
                                                 class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
-                                                placeholder="you@example.com" 
-                                                id="businessname" type="text" />
+                                                placeholder="Enter Business Name Ex. Eazio" id="businessname" type="text" />
                                         </div>
                                     </div>
                                     <!--busness category input field-->
@@ -128,10 +127,12 @@
                                             class="block text-sm font-medium leading-6 text-gray-900">Business
                                             Category</label>
                                         <div class="relative mt-2 rounded-md shadow-sm b-info">
-                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                                 <mat-icon svgIcon="category-icon" class="mat-icon-size"></mat-icon>
                                             </div>
-                                            <mat-select placeholder="Select Business Category Ex." formControlName="bcategory"
+                                            <mat-select placeholder="Select Business Category Ex."
+                                                formControlName="bcategory"
                                                 class=" border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm  focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6">
                                                 <mat-option>-- Select an option --</mat-option>
                                                 <mat-option value="Option 1">Option 1</mat-option>
@@ -139,42 +140,54 @@
                                                 <mat-option value="Option 3">Option 3</mat-option>
                                             </mat-select>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <!--busness type input field-->
                                     <div class="">
-                                        <label for="businesstype" class="block text-sm font-medium leading-6 text-gray-900">Business Type</label>
+                                        <label for="businesstype"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Business
+                                            Type</label>
                                         <div class="relative mt-2 rounded-md shadow-sm ">
-                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                                 <mat-icon svgIcon="category-icon" class="mat-icon-size"></mat-icon>
                                             </div>
-                                            <mat-select placeholder="Select Type Ex." formControlName="btype" class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
+                                            <mat-select placeholder="Select Type Ex." formControlName="btype"
+                                                class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
                                                 <mat-option>-- Select an option --</mat-option>
                                                 <mat-option value="Option 1">Option 1</mat-option>
                                                 <mat-option value="Option 2">Option 2</mat-option>
                                                 <mat-option value="Option 3">Option 3</mat-option>
                                             </mat-select>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <!--phone number input field-->
-                                     <div class="">
-                                        <label for="phonenumber" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
-                                        <div class="relative mt-2 rounded-md shadow-sm ">
-                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                <mat-icon svgIcon="category-icon" class="mat-icon-size"></mat-icon>
+                                    <div class="">
+                                        <label for="phone-number"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Phone
+                                            Number</label>
+                                        <div class="relative mt-2 ">
+                                            <div class="absolute  left-0 flex items-center">
+                                                <label for="country" class="sr-only">Country</label>
+                                                <select id="country" name="country" autocomplete="country"
+                                                    class="h-10 border border-gray-300 px-3 py-2 rounded-md border-0 bg-transparent  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                    >
+                                                    <option>US</option>
+                                                    <option>CA</option>
+                                                    <option>EU</option>
+                                                </select>
                                             </div>
-                                            <mat-select placeholder="Select Type Ex." formControlName="pnumber" class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
-                                                <mat-option>-- Select an option --</mat-option>
-                                                <mat-option value="Option 1">Option 1</mat-option>
-                                                <mat-option value="Option 2">Option 2</mat-option>
-                                                <mat-option value="Option 3">Option 3</mat-option>  
-                                            </mat-select>
+                                            <input type="text" name="phone-number" id="phone-number" formControlName="pnumber"
+                                                class="h-10 w-full border border-gray-300 pl-16 py-2 rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                placeholder="+1 (555) 987-6543" />
                                         </div>
-                                    </div> 
+                                    </div>    
                                     <!--website input field-->
                                     <div class="col-span-2">
-                                        <label for="Business Name" class="block text-sm font-medium leading-6 text-gray-900">Website</label>
+                                        <label for="Business Name"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Website</label>
                                         <div class="relative mt-2 rounded-md shadow-sm">
-                                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                                 <mat-icon svgIcon="globle" class="mat-icon-size"></mat-icon>
                                             </div>
                                             <input name="Website"
@@ -182,7 +195,7 @@
                                                 placeholder="Enter Website Ex. www.eazio.com (Optional)"
                                                 formControlName="website" id="Website" type="text" />
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <!--business information text-->
                                 <div>
@@ -194,18 +207,24 @@
                                     <div class="mt-5 grid grid-cols-2 gap-4 pl-8">
                                         <!--Street Address # 1 input field-->
                                         <div class="">
-                                            <label for="Street Address" class="block text-sm font-medium leading-6 text-gray-900">Street Address # 1</label>
+                                            <label for="Street Address"
+                                                class="block text-sm font-medium leading-6 text-gray-900">Street Address
+                                                # 1</label>
                                             <div class="relative mt-2 rounded-md shadow-sm">
-                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                    <mat-icon svgIcon="location-outline" class="mat-icon-size"></mat-icon>
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="location-outline"
+                                                        class="mat-icon-size"></mat-icon>
                                                 </div>
-                                                <input name="streetaddress"  formControlName="saddress"  
+                                                <input name="streetaddress" formControlName="saddress"
                                                     class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
                                                     placeholder="Enter Street Address Ex. Office # 306, Street 11..."
-                                                   id="streetaddress" type="text" />
-                                                    <div class="pointer-events-none  absolute inset-y-0 right-0 flex items-center pr-3">
-                                                    <mat-icon svgIcon="current-location" class="mat-icon-size"></mat-icon>
-                                                    </div>
+                                                    id="streetaddress" type="text" />
+                                                <div
+                                                    class="pointer-events-none  absolute inset-y-0 right-0 flex items-center pr-3">
+                                                    <mat-icon svgIcon="current-location"
+                                                        class="mat-icon-size"></mat-icon>
+                                                </div>
                                             </div>
                                         </div>
                                         <!--Street Address # 2 input field-->
@@ -215,13 +234,15 @@
                                                 #
                                                 2</label>
                                             <div class="relative mt-2 rounded-md shadow-sm">
-                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                    <mat-icon svgIcon="location-outline"  class="mat-icon-size"></mat-icon>
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="location-outline"
+                                                        class="mat-icon-size"></mat-icon>
                                                 </div>
                                                 <input name="streetaddress2" formControlName="saddress2"
                                                     class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
-                                                    placeholder="Enter Street Address 2 (Optional)"
-                                                     id="streetaddress2" type="text" />
+                                                    placeholder="Enter Street Address 2 (Optional)" id="streetaddress2"
+                                                    type="text" />
                                             </div>
                                         </div>
                                     </div>
@@ -231,25 +252,29 @@
                                             <label for="Country"
                                                 class="block text-sm font-medium leading-6 text-gray-900">Country</label>
                                             <div class="relative mt-2 rounded-md shadow-sm ">
-                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                                     <mat-icon svgIcon="world-outline" class="mat-icon-size"></mat-icon>
                                                 </div>
-                                                <mat-select placeholder="Select Category Ex. United Arab Emirates" formControlName="country"
+                                                <mat-select placeholder="Select Category Ex. United Arab Emirates"
+                                                    formControlName="country"
                                                     class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
                                                     <mat-option>-- Select an option --</mat-option>
                                                     <mat-option value="Option 1">Option 1</mat-option>
                                                     <mat-option value="Option 2">Option 2</mat-option>
-                                                    <mat-option value="Option 3">Option 3</mat-option>    
+                                                    <mat-option value="Option 3">Option 3</mat-option>
                                                 </mat-select>
                                             </div>
                                         </div>
-                                        <!--city input field-->                                           
+                                        <!--city input field-->
                                         <div class="">
                                             <label for="P.O. Box Number"
                                                 class="block text-sm font-medium leading-6 text-gray-900">City</label>
                                             <div class="relative mt-2 rounded-md shadow-sm ">
-                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                    <mat-icon svgIcon="building-outline" class="mat-icon-size"></mat-icon>
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="building-outline"
+                                                        class="mat-icon-size"></mat-icon>
                                                 </div>
                                                 <mat-select placeholder="Select City Ex. Dubai" formControlName="city"
                                                     class="h-10 border border-gray-300 pl-9 px-4 py-2  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6">
@@ -262,24 +287,23 @@
                                         </div>
                                         <!--P.O. Box Number input field-->
                                         <div class="">
-                                            <label for="P.O. Box Number" class="block text-sm font-medium leading-6 text-gray-900">P.O. Box </label>
+                                            <label for="P.O. Box Number"
+                                                class="block text-sm font-medium leading-6 text-gray-900">P.O. Box
+                                            </label>
                                             <div class="relative mt-2 rounded-md shadow-sm">
-                                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                                    <mat-icon svgIcon="envelope-outline" class="mat-icon-size"></mat-icon>
+                                                <div
+                                                    class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                    <mat-icon svgIcon="envelope-outline"
+                                                        class="mat-icon-size"></mat-icon>
                                                 </div>
                                                 <input name="P.O. Box Number" formControlName="boxnumber"
                                                     class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
-                                                    placeholder="Enter P.O. Box Number Ex. 0000"
-                                                     id="P.O.-box-number"
+                                                    placeholder="Enter P.O. Box Number Ex. 0000" id="P.O.-box-number"
                                                     type="text" />
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
-                                
-
-
-
+                                </div>
                                 <div class="pl-8 mt-6 flex">
                                     <button type="button" (click)="previousStep()"
                                         class="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 py-4 px-[18px] mr-5 text-sm font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -287,7 +311,7 @@
                                         Back
 
                                     </button>
-                                    <button type="button"  [disabled]="!formGroup.valid" (click)="nextStep()"
+                                    <button type="button" [disabled]="!formGroup.valid" (click)="nextStep()"
                                         class="disabled inline-flex items-center gap-x-2 rounded-md bg-indigo-600 py-4 px-[28px] text-sm font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                         Proceed to: Personal Information
                                         <mat-icon svgIcon="arrow-right" color="white" class="mat-icon-size "></mat-icon>
@@ -296,13 +320,110 @@
                             </form>
                         </div>
                     </div>
-
-
-
                 </div>
 
                 <div *ngIf="currentStep === 3">
                     <!-- Step 3 Content -->
+                    <div class="">
+                        <span class="absolute left-3 top-[] -ml-px h-full w-[0.3vh] bg-gray-900"
+                            aria-hidden="true"></span>
+                        <div class="relative space-x-3">
+                            <form action="#" method="POST" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+                                <div>
+                                    <span
+                                        class="h-6 w-6 rounded-full bg-primary flex items-center justify-center ring-8 ring-transparent">
+                                    </span>
+                                </div>
+                                <!--personal information-->
+                                <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-5 pl-8">
+                                    <div class="flex">
+                                        <div class="my-auto mr-2 ">
+                                            <mat-icon svgIcon="left-arrow" class=" text-primary cursor-pointer "
+                                                (click)="previousStep()"></mat-icon>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-lg">STEP # 2</p>
+                                            <p class="text-primary text-6xl font-bold pt-2 ">Personal Information</p>
+                                            <p class="text-gray-500 text-xl leading-8">Add Full Name, Address, Phone Number</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-5 grid grid-cols-3 gap-4 pl-8">
+                                    <!--Full Name input field-->
+                                    <div class="">
+                                        <label for="Full Name"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+                                        <div class="relative mt-2 mb-2 rounded-md shadow-sm">
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="user" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <input name="Full Name" formControlName="fname"
+                                                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                placeholder="John Doe" id="fullname" type="text" />
+                                        </div>
+                                        <span class="text-gray-400 font-sm pt-sm">Same as Registered Full Name</span>
+                                    </div>
+                                    <!--Email Address input field-->
+                                    <div class="">
+                                        <label for="Email Address"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
+                                        <div class="relative mt-2 mb-2 rounded-md shadow-sm">
+                                            <div
+                                                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                                <mat-icon svgIcon="envelope-outline" class="mat-icon-size"></mat-icon>
+                                            </div>
+                                            <input name="email" formControlName="email"
+                                                class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                placeholder="john@eazio.com" id="email" type="text" />
+                                        </div>
+                                        <span class="text-gray-400 font-sm pt-sm">Same as Registered Email Address</span>
+                                    </div>
+                                    <!--phone number input field-->
+                                    <div class="">
+                                        <label for="phone-number"
+                                            class="block text-sm font-medium leading-6 text-gray-900">Phone
+                                            Number</label>
+                                        <div class="relative mt-2 mb-2">
+                                            <div class="absolute  left-0 flex items-center">
+                                                <label for="country" class="sr-only">Country</label>
+                                                <select id="country" name="country" autocomplete="country"
+                                                    class="h-10 border border-gray-300 px-3 py-2 rounded-md border-0 bg-transparent  rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                    >
+                                                    <option>US</option>
+                                                    <option>CA</option>
+                                                    <option>EU</option>
+                                                </select>
+                                            </div>
+                                            <input type="text" name="phone-number" id="phone-number" formControlName="ppnumber"
+                                                class="h-10 w-full border border-gray-300 pl-16 py-2 rounded-md placeholder:text-gray-300 placeholder:text-xm focus:outline-none focus:ring-2  focus:ring-primary sm:text-sm sm:leading-6"
+                                                placeholder="+1 (555) 987-6543" />
+                                        </div>
+                                        <span class="text-gray-400 font-sm pt-sm">Same as Registered Phone Number</span>
+                                    </div>    
+                                    <!--trem & condition check box-->
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                          <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 mr-2">
+                                          I Accept the <a class="text-primary"> Terms & Conditions</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pl-8 mt-6 flex">
+                                    <button type="button" (click)="previousStep()"
+                                        class="inline-flex items-center gap-x-2 rounded-md bg-indigo-600 py-4 px-[18px] mr-5 text-sm font-normal text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        <mat-icon svgIcon="arrow-left" color="white" class="mat-icon-size "></mat-icon>
+                                        Back to Business Information</button>
+                                    <button type="button" [disabled]="!formGroup.valid" (click)="nextStep()"
+                                        class="p-info  inline-flex items-center gap-x-2 rounded-md bg-lime-600 py-4 px-[28px] text-sm font-normal text-white shadow-sm hover:bg-lime-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                        Verify Email Address
+                                        <mat-icon svgIcon="arrow-right" color="white" class="mat-icon-size "></mat-icon>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>            
+
                     <h3>Step 3</h3>
                     <p>This is the content of Step 3.</p>
                     <button mat-button color="primary" (click)="previousStep()">Previous</button>

@@ -11,3 +11,6 @@
    
     width: 320px !important;
 }
+.p-info:disabled{
+    background-color: #84cc16;
+}
