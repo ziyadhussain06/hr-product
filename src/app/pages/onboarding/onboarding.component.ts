@@ -28,6 +28,7 @@ export class OnboardingComponent implements OnInit{
   onSubmit() {
     // Your form submission logic here
   }
+  /*personal inf
 /* close button*/
 closebtn = true;
 currentStep = 1;
