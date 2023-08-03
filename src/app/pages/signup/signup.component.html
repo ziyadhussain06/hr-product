@@ -22,7 +22,7 @@
               <input name="fullname" id="fullname"
                 class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
                 placeholder="Full name" formControlName="fullname"  type="text"
-                [(ngModel)]="fullname" (focus)="fullnameValidation()" (input)="validatefullname()"
+                [(ngModel)]="fullname" (focus)="fullnameValidation()" (blur)="validatefullname()"
                 [ngClass]="{ 'valid': isfullnameValid, 'invalid': !isfullnameValid , 'default':!fullname}" ngModel
                 maxlength="25" />
             </div>
@@ -42,7 +42,7 @@
               <input type="text" name="Username" id="Username"
                 class=" h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
                 placeholder="Enter Username EX. John_588" formControlName="username" type="text" [(ngModel)]="usernam"
-                (focus)="usernamValidation()" (input)="validateusernam()" 
+                (focus)="usernamValidation()" (blur)="validateusernam()" 
                 [ngClass]="{ 'valid': isusernamValid, 'invalid': !isusernamValid , 'default' : !usernam , 'red' : userAvailabilityHint}" 
                 maxlength="25" minlength="2" />
             </div>
@@ -64,7 +64,7 @@
               <input type="email" name="email" id="email"
                 class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
                 placeholder="you@example.com" formControlName="email" id="email" type="email" [(ngModel)]="email"
-                (focus)="resetValidation()" (input)="validateEmail()"  (input)="alreadyExistEmail()"
+                (focus)="resetValidation()" (blur)="validateEmail()"  (blur)="alreadyExistEmail()"
                 [ngClass]="{ 'valid': isEmailValid, 'invalid': !isEmailValid, 'default' : !email, 'red' : emailAvailabilityHint }" />
             </div>
             <div *ngIf="!isEmailValid" class="text-red-500 mt-2">
@@ -101,7 +101,7 @@
               <input type="password" name="password" id="password"
                 class="h-10 block w-full rounded-md border-0 py-1.5  pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
                 placeholder="New password" formControlName="password" [(ngModel)]="password"
-                [type]="passwordVisible ? 'text' : 'password'" (input)="validatePassword()" (focus)="onFocus()"
+                [type]="passwordVisible ? 'text' : 'password'" (blur)="validatePassword()" (focus)="onFocus()"
                 (input)="onBlur()" [class.valid]="isPasswordValid" [class.invalid]="!isPasswordValid"
                 [class.default]="!password">
             </div>
@@ -155,7 +155,7 @@
               <input type="confirm-Password" name="confirm-Password" id="confirm-Password"
                 class="h-10 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
                 placeholder="Confirm password " formControlName="confirmPassword" [(ngModel)]="confirmPassword"
-                [type]="confirmPasswordVisible ? 'text' : 'password'" (input)="validatePassword()" (focus)="onFocus()"
+                [type]="confirmPasswordVisible ? 'text' : 'password'" (blur)="validatePassword()" (focus)="onFocus()"
                 (blur)="onBlur()" [class.valid]="isPasswordConfirmed" [class.invalid]="!isPasswordConfirmed"
                 [class.default]="!confirmPassword">
             </div>
