@@ -1,6 +1,7 @@
 import { Component , OnInit  } from '@angular/core';
 import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {API_BASE_URL} from '../../../constant/environment'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -31,7 +32,7 @@ export class SignupComponent implements OnInit{
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
       // Make an HTTP POST request to the Postname local API endpoint
-      this.http.post('http://192.168.100.4:3000/api/user/register', formData)
+      this.http.post(API_BASE_URL +'api/user/register', formData)
         .subscribe(
           (response) => {
             this.registrationResponse = 'Registration successful!';
@@ -66,7 +67,7 @@ export class SignupComponent implements OnInit{
   }
   alreadyExistEmail(){
     const formData = this.registrationForm.value;
-    this.http.post('http://192.168.100.4:3000/api/user/email-exist', { email: formData.email })
+    this.http.post(API_BASE_URL +'api/user/email-exist', { email: formData.email })
         .subscribe(
           (response) => {
             if(response != null){
@@ -117,7 +118,7 @@ export class SignupComponent implements OnInit{
       this.isusernamValid = this.isusernamFormatValid;
     }
     const formData = this.registrationForm.value;
-      this.http.post('http://192.168.100.4:3000/api/user/unique-username', { username: formData.username })
+      this.http.post(API_BASE_URL +'api/user/unique-username', { username: formData.username })
           .subscribe(
             (response) => {
               if(response != null){
