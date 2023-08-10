@@ -1,8 +1,7 @@
 .blob{
-    position: relative;
-    width:100%;
-    height: 100vh;
-    overflow-y: hidden; /* Hide vertical scrollbar */
+    
+    
+    /*overflow-y: hidden; /* Hide vertical scrollbar 
     overflow-x: hidden; 
     background: url("../../../assets/blobs-img1.svg") no-repeat , 
      url("../../../assets/blobs-img2.svg") no-repeat 0% 0%,
@@ -18,11 +17,23 @@
      top -40vh left 20vh,
      top -30vh  left  -30vh,
      top -40vh right -30vh ,
-     top 0vh right 20vh ;
+     top 0vh right 20vh ; */
+     /* background: url("../../../assets/background-animation.svg"); */
+     
+    /* overflow-x: clip;
+    animation: rotation 2s infinite linear; */
 }
+/* @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(170deg);
+    }
+  } */
 .h-screens{
     height: 100%;
-}
+}   
 
 
 /* .svg1{
@@ -57,18 +68,27 @@
 }  */
 .login-background {
     width: 100%;
-    height: 70vh;
-/* background-color: #E99F40;*/
-clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);  
+    height: 85vh;
+    
+/* 
+background-color: #E99F40; */  
 }   
-
+.svg{
+    height: 100%;
+    width:100%;
+    margin-top: -200px;
+}
 /*mobile */
 @media (min-width:0px) and (max-width:767px){
-    .blob{
+    .svg{
+        height: 100%;
+        width:100%;
+        margin-top: 0px !important; }
+    /* .blob{
         position: relative;
         width:100%;
         height: 100vh;
-        overflow-y: hidden; /* Hide vertical scrollbar */
+        overflow-y: hidden; /* Hide vertical scrollbar
         overflow-x: hidden; 
         background: url("../../../assets/blobs-img1.svg") no-repeat , 
          url("../../../assets/blobs-img2.svg") no-repeat 0% 0%,
@@ -88,7 +108,7 @@ clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);
          top 0vh right 0vh ;
          
          
-    }
+    } */
     /* .svg1{
         width: 100% !important;
         top: -8rem !important;
@@ -113,10 +133,15 @@ clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);
         left: 15rem !important;
     } */
 }
-/* 
-/*table
+
 @media (min-width:768px) and (max-width:1023px){
-    .svg1{
+    .svg{
+    height: 100%;
+    width:100%;
+    margin-top: 0px !important;
+}
+}
+    /*.svg1{
         width: 100% !important;
         top: -15rem !important;
         left: -12rem !important;
@@ -141,8 +166,13 @@ clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);
         top: 5rem !important;
         left: 12rem !important;
     }
-}
+}*/
 @media (min-width:1024px) and (max-width:1200px){
+    .svg{
+    height: 100%;
+    width:100%;
+    margin-top: 0px !important;
+}}/*
     .svg1{
         width: 100% !important;
         top: -15rem !important;
@@ -168,8 +198,13 @@ clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 50%, 0 100%);
         top: 5rem !important;
         left: 12rem !important;
     }
-}
+}*/
 @media (min-width:1201px) and (max-width:1441px){
+    .svg{
+        height: 100%;
+        width:100%;
+        margin-top: 0px !important;
+    }}/*
     .svg1{
         position: absolute;
         width: 70%;

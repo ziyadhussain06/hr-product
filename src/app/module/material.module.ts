@@ -43,7 +43,7 @@ export class MaterialModule {
     );
     this.matIconRegistry.addSvgIcon(
       "envelope",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/20/solid/envelope.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/24/outline/envelope.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "eazio-logo-black",
@@ -51,7 +51,7 @@ export class MaterialModule {
     );
     this.matIconRegistry.addSvgIcon(
       "user",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/20/solid/user.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/24/outline/user.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "at-sign",
@@ -63,7 +63,7 @@ export class MaterialModule {
     );
     this.matIconRegistry.addSvgIcon(
       "lock-close",
-      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/20/solid/lock-closed.svg")
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/24/outline/lock-closed.svg")
     );
     this.matIconRegistry.addSvgIcon(
       "info-tooltip",
@@ -133,5 +133,22 @@ export class MaterialModule {
       "current-location",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/current-location.svg")
     );
+    this.matIconRegistry.addSvgIcon(
+      "reload-spinner",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/reload-spinner.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "eye-slash",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/24/outline/eye-slash.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "eye",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/24/outline/eye.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "alert-circle",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/24/outline/alert-circle.svg")
+    );
+    
   }
 }

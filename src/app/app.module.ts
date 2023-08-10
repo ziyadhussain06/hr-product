@@ -15,6 +15,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { OtpComponent } from './pages/otp/otp.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
     FooterComponent,
     ForgotPasswordComponent,
     OtpComponent,
-    OnboardingComponent
+    OnboardingComponent,
+   
     
     
     

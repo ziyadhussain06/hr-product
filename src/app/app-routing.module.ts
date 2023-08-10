@@ -5,6 +5,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { OtpComponent } from './pages/otp/otp.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { BackgroundComponent } from './components/background/background.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'forgot', component: ForgotPasswordComponent },
   { path: 'otp', component: OtpComponent },
   { path: 'onboarding', component: OnboardingComponent },
+  { path: 'background', component: BackgroundComponent },
   { path: '', redirectTo:'/signup', pathMatch: 'full'}
 ];
 

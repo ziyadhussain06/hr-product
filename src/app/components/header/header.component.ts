@@ -20,4 +20,5 @@ export class HeaderComponent {
   isSignUpPage(): boolean {
     return this.router.url === '/signup';
   }
+  
 }
