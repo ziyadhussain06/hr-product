@@ -8,12 +8,12 @@
           <mat-icon svgIcon="eazio-logo-black" class="eazio--logo"></mat-icon>
         </div>
         <div class="pt-5 sm:mx-auto sm:w-full ">
-          <h2 class=" text-2xl font-bold leading-9 tracking-tight text-gray-900">Create An Account</h2>
+          <span class=" text-2xl font-bold leading-9  text-gray-900">Create An Account</span>
         </div>
         <!--form start-->
         <form class="space-y-6 mt-5" action="#" method="POST" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
           <!--full name field start-->
-          <div>
+          <div >
             <label for="Full name" class="block text-sm font-normal leading-6 text-gray-700">Full name</label>
             <div class="relative mt-2 rounded-md shadow-sm">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -26,7 +26,7 @@
                 [ngClass]="{ 'valid': isfullnameValid, 'invalid': !isfullnameValid , 'default':!fullname}" ngModel
                 maxlength="25" />
             </div>
-            <div *ngIf="!isfullnameValid" class="text-red-500 mt-2 flex ">
+            <span *ngIf="!isfullnameValid" class="text-red-500  flex ">
               <mat-icon svgIcon="alert-circle" class=""></mat-icon>
               <span *ngIf="!fullname" class="py-1 px-1 font-xs">Please Enter Full name.</span>
               <span *ngIf="!fullname && !isfullnameValid && !containsAlphabet()" class="text-red-500 py-1 px-1 font-xs">
@@ -35,7 +35,7 @@
               <span *ngIf="fullname && fullname.length < 4" class="text-red-500 py-1 px-1 font-xs">
                 Full name Should be 4 character
               </span>
-            </div>
+            </span>
            
           </div>
           <!--full name field end-->
@@ -54,15 +54,15 @@
                 maxlength="25" minlength="2" />
                 
             </div>
-            <div *ngIf="isusernamValid" class="text-red-500 mt-2">
+            <div *ngIf="isusernamValid" class="text-red-500 ">
               <span   class="text-red-500" >{{ userAvailabilityHint }}</span>
             </div>
-            <div *ngIf="!isusernamValid" class="text-red-500 mt-2 flex ">
+            <div *ngIf="!isusernamValid" class="text-red-500 flex ">
               <mat-icon svgIcon="alert-circle" class=""></mat-icon>
               <span *ngIf="!usernam" class="py-1 px-1 font-xs">Please Enter Username </span>
               <span *ngIf="usernam && !isusernamValid" class="py-1 px-1 font-xs">Username must have valid conditions</span>
             </div>
-            <div class="flex mt-2">
+            <div class="flex ">
               <div>
                 <span *ngIf="!isusernamValid && usernam.length < 8" class="text-red-500">
                   <li>Minimum of 8 Characters</li>
@@ -101,15 +101,16 @@
                 placeholder="Email Address" formControlName="email" id="email" type="email" [(ngModel)]="email"
                 (focus)="resetValidation()" (blur)="validateEmail()"  (blur)="alreadyExistEmail()"
                 [ngClass]="{ 'valid': isEmailValid, 'invalid': !isEmailValid, 'default' : !email, 'red' : emailAvailabilityHint}" />
+                
             </div>
-            <div *ngIf="!isEmailValid" class="text-red-500 mt-2  flex" >
-              <mat-icon svgIcon="alert-circle" class=""></mat-icon>
-              <span *ngIf="!email" class="py-1 px-1 font-xs">Please Enter Email Address.</span>
-              <span *ngIf="email && !isEmailFormatValid" class="py-1 px-1 font-xs">Invalid Email Address.</span>
-            </div>
-            <div *ngIf="isEmailValid" class="text-red-500 mt-2">
-            <span *ngIf="emailAvailabilityHint"  class="text-red-500 py-1 px-1 font-xs">{{ emailAvailabilityHint }}</span>
-          </div>
+            <div *ngIf="!isEmailValid" class="text-red-500 flex" >
+                  <mat-icon svgIcon="alert-circle" class=""></mat-icon>
+                  <span *ngIf="!email" class="py-1 px-1 font-xs">Please Enter Email Address.</span>
+                  <span *ngIf="email && !isEmailFormatValid" class="py-1 px-1 font-xs">Invalid Email Address.</span>
+                </div>
+                <div *ngIf="isEmailValid" class="text-red-500 mt-2">
+                <span *ngIf="emailAvailabilityHint"  class="text-red-500 py-1 px-1 font-xs">{{ emailAvailabilityHint }}</span>
+              </div>
             
             
           </div>
@@ -140,11 +141,11 @@
                 (input)="onBlur()" [class.valid]="isPasswordValid" [class.invalid]="!isPasswordValid"
                 [class.default]="!password">
             </div>
-            <div *ngIf="!isPasswordValid" class="text-red-500 mt-2 flex">
+            <div *ngIf="!isPasswordValid" class="text-red-500  flex">
               <mat-icon svgIcon="alert-circle" class=""></mat-icon>
               <span *ngIf=" !isPasswordValid" class="py-1 px-1 font-xs">Must match with below conditions</span>
             </div>
-            <div class="flex mt-2">
+            <div class="flex ">
               <div>
                 <span *ngIf="!isPasswordValid && password.length < 8" class="text-red-500">
                   <li>Minimum 8 characters</li>
@@ -195,10 +196,10 @@
                 (input)="onBlur()" [class.valid]="isPasswordConfirmed" [class.invalid]="!isPasswordConfirmed"
                 [class.default]="!confirmPassword">
             </div>
-            <div *ngIf="isPasswordConfirmed" class="text-green-500 mt-2">
+            <div *ngIf="isPasswordConfirmed" class="text-green-500 ">
               <span *ngIf="confirmPassword && isPasswordConfirmed">Password match</span>
             </div>
-            <div class="mt-2 flex" *ngIf="!isPasswordConfirmed">
+            <div class=" flex" *ngIf="!isPasswordConfirmed">
               <mat-icon svgIcon="alert-circle" class=""></mat-icon>
               <span  class="text-red-500 py-1 px-1 font-xs">Passwords do not match</span>
             </div>
@@ -215,7 +216,7 @@
           <!--button end-->
           <div >
             <div *ngIf="registrationSuccess" class="border-green-700 border-l-2 bg-green-100 text-gray-500 p-3">
-              Registration successful!
+              Registration successful! and verify Your account throw Email
             </div>
             
             <div *ngIf="registrationError" class="border-red-700 border-l-2 bg-red-100 text-gray-500 p-3">

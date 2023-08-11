@@ -5,9 +5,9 @@
         <div class="relative ">
             <mat-icon svgIcon="eazio-logo-black" class="eazio--logo"></mat-icon>
             <button type="button" class="inline-flex rounded-md  text-blue-600  focus:outline-none absolute right-0"
-                (click)="closebtn = false">
+            (click)="logout()">
                 <span class="sr-only">Dismiss</span>
-                <mat-icon svgIcon="x-mark" class="text-red-600"></mat-icon>
+                <mat-icon svgIcon="x-mark" class="text-red-600" ></mat-icon>
             </button>
         </div>
         
@@ -30,7 +30,7 @@
                                     <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-5 pl-8">
                                         <div>
                                             <p class=" font-bold text-lg">3 SIMPLE STEPS </p>
-                                            <p class="text-primary text-6xl font-bold pt-2">Hello John,</p>
+                                            <p class="text-primary text-6xl font-bold pt-2">Hello {{ username }},</p>
                                             <p class="text-3xl font-normal pt-2">Welcome to Your New <span
                                                     class="text-primary">Eazio</span></p>
                                             <p class="text-gray-500 pt-3 leading-6">Add Business Information, Personal

@@ -3,6 +3,7 @@ import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 import { API_BASE_URL } from '../../../constant/environment';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,6 +20,7 @@ export class SigninComponent implements OnInit{
   signInForm!: FormGroup;
   signInError: string = '';
   loading: boolean = false;
+  signInError401: string = '';
   constructor(private formBuilder: FormBuilder,
               private http: HttpClient,
               private router: Router,
@@ -40,31 +42,39 @@ export class SigninComponent implements OnInit{
     }
   }
   validateCredentials(email: string, password: string): void {
+
     this.http.post<any>(API_BASE_URL+'api/auth/login', { email: email, password: password })
-      .subscribe(
+    .subscribe(
+    //   (response: any) => {
+    //     if (response.valid) {
+    //       localStorage.setItem('token', response.access_token);
+    //       console.log(response.access_token)
+    //       //this.router.navigate(['/dashboard']);
+    //     } else {
+
+    //       this.signInError = response.message; // Show error message from API
+    //       console.log(this.signInError )
+    //     }
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     this.signInError = 'An error occurred. Please try again later.';
+    //   }
+    // );
+      // .subscribe(
         (response) => {
           // Handle successful response here
           if (response.success) {
            
-            // Sign-in successful, navigate to the dashboard or the desired page
-            this.signInError = '';
-            localStorage.setItem('userId', response.userId);
+            // this.signInForm.reset();
+            // localStorage.setItem('access_token', response.access_token); 
+            // console.log('access_token:', response.access_token);
             this.signInForm.reset();
-            localStorage.setItem('jwtToken', response.token); // Store the JWT in local storage
-
-            // Display the JWT token in the console (for demonstration only)
-            console.log('JWT Token:', response.token);
-            
-            // Redirect to the dashboard or the desired page
-          } else {
-            // Sign-in failed, show error message to the user
-           // this.signInError ;
-            this.signInForm.reset();
+           localStorage.setItem('access_token', response.access_token); // Store the JWT in local storag 
+           console.log('access_token:', response.access_token);
             this.loading = true;
               setTimeout(() => {
                 // Redirect to a success page using Angular Router
                 this.router.navigate(['/onboarding']);
-
                 // Reload the current page after 3 seconds
                 setTimeout(() => {
                   this.loading = false; // Set the loading state to false
@@ -75,10 +85,25 @@ export class SigninComponent implements OnInit{
         },
         (error: HttpErrorResponse) => {
          
-          // Handle API error response here
-          //console.error('Sign-in failed:', error);
-          this.signInError = 'An error occurred during sign-in. Please try again later.';
           this.signInForm.reset();
+          if(error.error instanceof ErrorEvent){
+            // this.signInError400 = `Error ${error.error.message}`
+             
+          }else{
+            if(error.status == 401){
+              this.signInError = "Invalid Email or Password"
+              this.reloadPageAfterDelay();
+            }
+            if(error.status == 400){
+              this.signInError = `Error ${error.error.message}`
+              this.reloadPageAfterDelay();
+            }
+
+           
+          }
+          
+          
+          
         }
       );
   }
@@ -93,6 +118,11 @@ export class SigninComponent implements OnInit{
 
   /*Alert warnig msg close button*/
   alertwarning = true;
+  reloadPageAfterDelay() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000); // Adjust the delay time as needed
+  }
    
   
 }

@@ -4,6 +4,7 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    
     extend: {
       colors:{
         'primary' : "#F4711E",
@@ -17,7 +18,9 @@ module.exports = {
         'cardshadow-lg' : 'box-shadow: 0px 0px 64px 0px rgba(38, 38, 38, 0.08)',
         'inputshadow' : 'box-shadow: 0px 0px 0px 4px #FFAE6D, 0px 1px 2px 0px rgba(16, 24, 40, 0.05);'
       },
-      
+      fontFamily: {
+        'inter':  ['inter', 'sans-serif'],
+      }
       
     },
   },

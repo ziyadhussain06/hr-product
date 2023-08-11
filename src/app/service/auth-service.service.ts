@@ -5,9 +5,6 @@ import { API_BASE_URL } from '../../constant/environment';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, Injectable } from '@angular/core';
-
-
-
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -17,32 +14,29 @@ export class AuthService {
   signInForm!: FormGroup;
   signInError: string = '';
   loading: boolean = false;
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,
+    private router:Router) { }
     login(data:any){ 
       this.http.post(API_BASE_URL+'api/auth/login',data)
       .subscribe(
-        (response)=>{
+        (response:any)=>{
           if (response.success) {
-           
             // Sign-in successful, navigate to the dashboard or the desired page
             this.signInError = '';
             
-            this.signInForm.reset();
-           
-            
-            
-          } else {
+           } else {
             // Sign-in failed, show error message to the user
-           // this.signInError ;
-           localStorage.setItem('jwtToken', response.token); // Store the JWT in local storage
-
+           this.signInError ;
+           this.signInForm.reset();
+           localStorage.setItem("access_token", response.access_token); // Store the JWT in local storage
            // Display the JWT token in the console (for demonstration only)
-           console.log('jwtToken:', response.token);
-            this.signInForm.reset();
+           console.log("access_token", response.access_token);
             this.loading = true;
+
               setTimeout(() => {
+                
                 // Redirect to a success page using Angular Router
-                this.router.navigate(['/onboarding']);
+                this.router.navigate(['']);
 
                 // Reload the current page after 3 seconds
                 setTimeout(() => {
@@ -62,5 +56,7 @@ export class AuthService {
         }
       )
     }
+
+    
 }
 

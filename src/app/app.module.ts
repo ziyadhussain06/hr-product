@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { OtpComponent } from './pages/otp/otp.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
+import { SignupConfirmationComponent } from './pages/signup-confirmation/signup-confirmation.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { OnboardingComponent } from './pages/onboarding/onboarding.component';
     ForgotPasswordComponent,
     OtpComponent,
     OnboardingComponent,
+    SignupConfirmationComponent,
    
     
     
