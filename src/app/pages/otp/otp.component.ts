@@ -19,7 +19,7 @@ ngOnDestroy() {
       if (this.seconds === 0) {
         if (this.minutes > 0) {
           this.minutes--;
-          this.seconds = 10;
+          this.seconds = 59;
         } else {
           this.stopTimer();
         }
@@ -33,11 +33,11 @@ ngOnDestroy() {
     this.isTimerRunning = false;
   }
   /*form disable buton*/
-  formGroup!: FormGroup; 
+  otp!: FormGroup; 
   constructor(private formBuilder: FormBuilder) {}
   ngOnInit() {
     this.startTimer();
-    this.formGroup = this.formBuilder.group({
+    this.otp = this.formBuilder.group({
       otpone: ['', Validators.required, ],
       otptwo: ['', Validators.required],
       otpthree: ['', Validators.required],
@@ -47,7 +47,14 @@ ngOnDestroy() {
     });
   }
   onSubmit() {
-    // Your form submission logic here
+    if (this.otp.valid) {
+      const data = this.otp.value;
+      // Make API call to validate credentials
+      this.validateCredentials(data);
+    }
+  }
+  validateCredentials(data:any): void {
+
   }
   onInputChange(event: Event) {
     const input = event.target as HTMLInputElement;

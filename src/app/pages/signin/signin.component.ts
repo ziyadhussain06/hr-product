@@ -1,9 +1,9 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder , FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'; 
 import { API_BASE_URL } from '../../../constant/environment';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +23,7 @@ export class SigninComponent implements OnInit{
   signInError401: string = '';
   constructor(private formBuilder: FormBuilder,
               private http: HttpClient,
-              private router: Router,
-              
+              private router: Router, 
               ) {}
   ngOnInit() {
     this.signInForm = this.formBuilder.group({
@@ -45,32 +44,17 @@ export class SigninComponent implements OnInit{
 
     this.http.post<any>(API_BASE_URL+'api/auth/login', { email: email, password: password })
     .subscribe(
-    //   (response: any) => {
-    //     if (response.valid) {
-    //       localStorage.setItem('token', response.access_token);
-    //       console.log(response.access_token)
-    //       //this.router.navigate(['/dashboard']);
-    //     } else {
-
-    //       this.signInError = response.message; // Show error message from API
-    //       console.log(this.signInError )
-    //     }
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     this.signInError = 'An error occurred. Please try again later.';
-    //   }
-    // );
-      // .subscribe(
         (response) => {
           // Handle successful response here
           if (response.success) {
-           
+            localStorage.setItem('access_token', response.access_token); // Store the JWT in local storag 
+           console.log('access_token:', response.access_token);
             // this.signInForm.reset();
             // localStorage.setItem('access_token', response.access_token); 
             // console.log('access_token:', response.access_token);
+          }else{
             this.signInForm.reset();
-           localStorage.setItem('access_token', response.access_token); // Store the JWT in local storag 
-           console.log('access_token:', response.access_token);
+          
             this.loading = true;
               setTimeout(() => {
                 // Redirect to a success page using Angular Router

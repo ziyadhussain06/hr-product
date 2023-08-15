@@ -40,9 +40,7 @@ body { margin: 0;
     width: auto !important;
    
 }
-button.disabled:disabled{
-    background-color: #BFDFFE;
-}
+
 .menu-spacer {
     flex: 1 1 auto;
 }

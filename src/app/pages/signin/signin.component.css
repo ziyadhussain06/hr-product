@@ -2,9 +2,7 @@
     flex: 1 1 auto;
 }
 
-button:disabled{
-    background-color: #BFDFFE;
-}
+
 .remember-me:disabled{
     color: #BFDFFE;;
 }

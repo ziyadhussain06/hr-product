@@ -15,6 +15,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { OtpComponent } from './pages/otp/otp.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { SignupConfirmationComponent } from './pages/signup-confirmation/signup-confirmation.component';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SignupConfirmationComponent } from './pages/signup-confirmation/signup-
     OtpComponent,
     OnboardingComponent,
     SignupConfirmationComponent,
+    ResetPasswordComponent,
    
     
     

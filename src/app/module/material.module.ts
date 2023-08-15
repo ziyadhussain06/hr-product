@@ -149,6 +149,14 @@ export class MaterialModule {
       "alert-circle",
       this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/24/outline/alert-circle.svg")
     );
+    this.matIconRegistry.addSvgIcon(
+      "Shield-outline",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/shield-outline.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "check",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../assets/check.svg")
+    );
     
   }
 }
