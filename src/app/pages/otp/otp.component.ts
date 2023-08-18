@@ -125,7 +125,7 @@ ngOnDestroy() {
   resendotp() {
     if (!this.isTimerRunning) {
       this.minutes = 0;
-      this.seconds = 10;
+      this.seconds = 59;
       this.isTimerRunning = true;
       this.startTimer();
     }
