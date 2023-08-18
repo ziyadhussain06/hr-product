@@ -23,7 +23,7 @@
                       <mat-icon svgIcon="user" class="mat-icon-size"></mat-icon>
                     </div>
                     <input name="fullname" id="fullname"
-                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:shadow-inputshadow sm:text-sm sm:leading-6"
+                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-2 focus:ring-primary focus:shadow-inputshadow sm:text-sm sm:leading-6"
                       placeholder="Enter Your Full Name Ex. John Doe" formControlName="fullname"  type="text"
                       [(ngModel)]="fullname" (focus)="fullnameValidation()" (blur)="validatefullname()"
                       [ngClass]="{ 'valid': isfullnameValid, 'invalid': !isfullnameValid , 'default':!fullname}" ngModel
@@ -36,7 +36,7 @@
                       Only use Alphabet
                     </span>
                     <span *ngIf="fullname && fullname.length < 4" class="text-red-500 py-1 px-1 font-xs">
-                      Full name Should be 4 character
+                      Full name should be 4 character
                     </span>
                   </span>
                 
@@ -50,8 +50,8 @@
                       <mat-icon svgIcon="at-sign" class="mat-icon-size"></mat-icon>
                     </div>
                     <input type="text" name="Username" id="Username" ngtrim="true"
-                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
-                      placeholder="Enter Username EX. John_588" formControlName="username" type="text" [(ngModel)]="usernam"
+                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  placeholder:text-base focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                      placeholder="Enter Username Ex. John_588" formControlName="username" type="text" [(ngModel)]="usernam"
                       (focus)="usernamValidation()" (blur)="validateusernam()" 
                       [ngClass]="{ 'valid': isusernamValid, 'invalid': !isusernamValid , 'default' : !usernam , 'red' : userAvailabilityHint}" 
                       maxlength="25" minlength="2" />
@@ -99,7 +99,7 @@
                       <mat-icon svgIcon="envelope" class="mat-icon-size text-gray-400"></mat-icon>
                     </div>
                     <input type="email" name="email" id="email"
-                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
                       placeholder="Email Address" formControlName="email" id="email" type="email" [(ngModel)]="email"
                       (focus)="resetValidation()" (blur)="validateEmail()"  (blur)="alreadyExistEmail()"
                       [ngClass]="{ 'valid': isEmailValid, 'invalid': !isEmailValid, 'default' : !email, 'red' : emailAvailabilityHint}" />
@@ -137,7 +137,7 @@
                       <mat-icon svgIcon="lock-close" class="mat-icon-size"></mat-icon>
                     </div>
                     <input type="password" name="password" id="password"
-                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5  pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5  pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6 placeholder:text-base "
                       placeholder="New password" formControlName="password" [(ngModel)]="password"
                       [type]="passwordVisible ? 'text' : 'password'" (input)="validatePassword()" (focus)="onFocus()"
                       (input)="onBlur()" [class.valid]="isPasswordValid" [class.invalid]="!isPasswordValid"
@@ -192,7 +192,7 @@
                       <mat-icon svgIcon="lock-close" class="mat-icon-size"></mat-icon>
                     </div>
                     <input type="confirm-Password" name="confirm-Password" id="confirm-Password"
-                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6"
+                      class="px-3.5 py-2.5 block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6 placeholder:text-base "
                       placeholder="Confirm password " formControlName="confirmPassword" [(ngModel)]="confirmPassword"
                       [type]="confirmPasswordVisible ? 'text' : 'password'" (input)="validatePassword()" (focus)="onFocus()"
                       (input)="onBlur()" [class.valid]="isPasswordConfirmed" [class.invalid]="!isPasswordConfirmed"
