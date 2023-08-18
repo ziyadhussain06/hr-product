@@ -7,6 +7,8 @@ import { OtpComponent } from './pages/otp/otp.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';  
 import { SignupConfirmationComponent } from './pages/signup-confirmation/signup-confirmation.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { TestComponent } from './pages/test/test.component';
+import { AuthGuard } from './AuthGuard/auth-guard.guard';
 
 
 const routes: Routes = [
@@ -15,8 +17,9 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgot', component: ForgotPasswordComponent },
   { path: 'otp', component: OtpComponent },
-  { path: 'onboarding', component: OnboardingComponent },
+  { path: 'onboarding', component: OnboardingComponent , canActivate: [AuthGuard]},
   { path: 'resetpassword', component: ResetPasswordComponent },
+  { path: 'test', component: TestComponent },
   { path: '', redirectTo:'/signup', pathMatch: 'full'}
 ];
 

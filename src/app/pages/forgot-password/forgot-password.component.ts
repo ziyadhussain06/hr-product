@@ -13,6 +13,8 @@ export class ForgotPasswordComponent implements OnInit{
   forgetpassword!: FormGroup; 
   loading: boolean = false;
   otpmessage: string ='';
+  otpresponse400:string = '';
+  otpresponse200:string = '';
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
@@ -32,13 +34,17 @@ export class ForgotPasswordComponent implements OnInit{
     }
   }
   validateCredentials(email: string ): void {
+    sessionStorage.setItem('userEmail', email);
     this.http.post<any>(API_BASE_URL+'api/forget-password', { email: email })
     .subscribe(
-        (response:any) => {
-          console.warn('addffdf');
-            this.otpmessage = response.message;
-            console.warn(this.otpmessage); // Set the API response message
-            this.loading = true;
+        (response) => {
+          
+          if (response.statusCode == 200 ){
+           
+          this.otpmessage = (response.message);
+          this.otpresponse200 = this.otpmessage;
+           this.loading = true;
+           
             setTimeout(() => {
               // Redirect to a success page using Angular Router
               this.router.navigate(['/otp']);
@@ -48,13 +54,25 @@ export class ForgotPasswordComponent implements OnInit{
                 window.location.reload();
               }, 3000);
             }, 2000);
+          }
+            else{
+              if (response.statusCode == 400 ){
+              
+                this.otpmessage = (response.message);
+                this.otpresponse400 = this.otpmessage;
+                this.reloadPageAfterDelay();
+              }
+            }
         },
         (error: HttpErrorResponse) => {
-          this.otpmessage= 'Server Error'
-          console.warn(this.otpmessage);
+          this.otpmessage= (error.error)
+         
+          this.reloadPageAfterDelay();
         }
     );
   }
+ 
+   
   /*email*/
   email: string = '';
   isEmailValid: boolean = true;
@@ -73,6 +91,12 @@ export class ForgotPasswordComponent implements OnInit{
     }
   }
 
-   
+   /*Alert warnig msg close button*/
+  alertwarning = true;
+  reloadPageAfterDelay() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000); // Adjust the delay time as needed
+  }
 
 }

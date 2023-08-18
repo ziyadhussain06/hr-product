@@ -16,7 +16,8 @@ import { OtpComponent } from './pages/otp/otp.component';
 import { OnboardingComponent } from './pages/onboarding/onboarding.component';
 import { SignupConfirmationComponent } from './pages/signup-confirmation/signup-confirmation.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
-
+import { NgOtpInputModule } from 'ng-otp-input';
+import { TestComponent } from './pages/test/test.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     OnboardingComponent,
     SignupConfirmationComponent,
     ResetPasswordComponent,
+    TestComponent,
    
     
     
@@ -41,8 +43,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    NgOtpInputModule
   
   ],
   providers: [],

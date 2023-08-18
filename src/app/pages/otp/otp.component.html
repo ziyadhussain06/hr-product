@@ -1,90 +1,103 @@
 <app-background></app-background>
-
 <div class="login-screen">
     <app-header></app-header>
     <div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 h-[80vh]">
-        <div class="mt-5 px-6 sm:mx-auto sm:w-full sm:max-w-[558px]">
-            <div class="bg-white px-6 py-12 rounded-cards  sm:px-12 bg-whites shadow-lg">
-                <div>
+        <div class="mt-5  sm:mx-auto sm:w-full sm:max-w-[558px]">
+            <div class="bg-white px-16 py-8 rounded-cards bg-whites shadow-lg">
+                <div class="mb-4">
                     <mat-icon svgIcon="eazio-logo-black" class="eazio--logo"></mat-icon>
                 </div>
-                <div class="pt-5 sm:mx-auto sm:w-full sm:max-w-sm space-y-5">
-                    <h2 class="text-2xl font-bold leading-9 tracking-tight text-gray-900 ">One Time Password - OTP
-                    </h2>
-                    <p class="">A One Time Password and Reset Password Link Has Been Sent To Given Email Address</p>
+                <div class="py-6 sm:mx-auto sm:w-full  ">
+                    <span class="text-2xl font-bold leading-8 tracking-tight text-gray-900 ">One Time Password - OTP
+                    </span><br>
+                    <span class="text-gray-900 text-sm font-normal leading-[22px]">A One Time Password and Reset Password Link Has Been Sent To Given Email Address</span>
                     <div>
                         <!--form start-->
-                        <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="otp">
+                        <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="otp_form">
                             <div class="flex flex-col space-y-5">
-                                <label  class="block text-sm font-normal leading-6 text-gray-500 -mb-5">Secure code</label>
-                                <div class= "flex flex-row items-center justify-between mr-3 w-full  ">
-                                    <div class="w-12 h-12 ">
-                                        <input formControlName="otpone"  maxlength="1"
-                                        (input)="onInputChange($event)"
-                                        (keypress)="onKeyPress($event)"
-                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
-                                             name="otpone" id="otpone" placeholder="0"  >
-                                    </div>
-                                    <div class="w-12 h-12 ">
-                                        <input formControlName="otptwo"  maxlength="1"
-                                        (input)="onInputChange($event)"
-                                        (keypress)="onKeyPress($event)"
-                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
-                                            type="text" name="otptwo" id="otptwo" placeholder="0">
-                                    </div>
-                                    <div class="w-12 h-12 ">
-                                        <input formControlName="otpthree"  maxlength="1"
-                                        (input)="onInputChange($event)"
-                                        (keypress)="onKeyPress($event)"
-                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
-                                            type="text" name="otpthree" id="otpthree" placeholder="0">
-                                    </div>
-                                    <div class="w-12 h-12 ">
-                                        <input formControlName="otpfour"  maxlength="1"
-                                        (input)="onInputChange($event)"
-                                        (keypress)="onKeyPress($event)"
-                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
-                                            type="text" name="otpfour" id="otpfour" placeholder="0">
-                                    </div>
-                                    <div class="w-12 h-12 ">
-                                        <input formControlName="otpfive"  maxlength="1"
-                                        (input)="onInputChange($event)"
-                                        (keypress)="onKeyPress($event)"
-                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
-                                            type="text" name="otpfive" id="otpfive" placeholder="0">
-                                    </div>
-                                    <div class="w-12 h-12 ">
-                                        <input formControlName="otpsix"  maxlength="1"
-                                        (input)="onInputChange($event)"
-                                        (keypress)="onKeyPress($event)"
-                                            class="w-full h-full flex flex-col items-center justify-center text-center outline-none rounded-md border border-gray-200 text-3xl bg-white focus:bg-gray-50 focus:ring-1 ring-primary placeholder:text-3xl " 
-                                            type="text" name="otpsix" id="otpsix"  onlyNumber placeholder="0">
+                                <div class="py-6">
+                                    <label class="block text-sm font-normal leading-6 text-gray-700 py-1.5">Secure code</label>
+                                    <div class="flex flex-row items-center justify-between mr-3 w-full  ">
+                                        <div class="w-[100vh] h-[64px] flex">
+                                            <input formControlName="otpcontrol" maxlength="1" type="text" maxlength="1"
+                                                *ngFor="let index of [1, 2, 3, 4, 5, 6]; let i = index"
+                                                [ngModel]="otpCode[i]" (ngModelChange)="onDigitChange($event, i)"
+                                                [name]="'digit' + i" required (input)="onInputChange($event)" 
+                                                class="w-full mr-2 h-full  text-5xl flex flex-col font-medium items-center justify-center text-center outline-none rounded-md border border-gray-300 text-5xl bg-white focus:bg-gray-50 focus:ring-1 focus:text-primary focus:Shadow-inputshadow ring-primary placeholder:text-5xl placeholder:text-gray-300" [class.invalid]="error_msg" [class.valid]="otpstatus"   
+                                                id="otpcontrol" placeholder="0">
+                                        </div>
+                                    </div> 
+                                    <div class="relative py-1.5">
+                                        <button
+                                            class="resend-otp text-xs text-gray-900  font-normal absolute  right-0  disabled:text-gray-300"
+                                            [disabled]="isTimerRunning">
+                                            Resend OTP in <span class="text-primary">{{ minutes }}:{{ seconds | number:
+                                                '2.0' }}</span>
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="relative ">
-                                    <button class="resend-otp text-xs text-gray-900  font-normal absolute  right-0 -mt-4 disabled:text-gray-300" [disabled]="isTimerRunning">
-                                        Resend OTP in <span class="text-primary">{{ minutes }}:{{ seconds | number: '2.0' }}</span> 
-                                    </button>
-                                                                      
+                                <div class="flex flex-col space-y-5 items-center" *ngIf="!otp_form.valid && isTimerRunning && !error_msg">
+                                    <button type="submit"
+                                        class="disabled flex  justify-center rounded-md bg-green-600  px-5 py-3 text-lg font-normal leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-green-300"
+                                        [disabled]="isTimerRunning || !otp_form.valid"><mat-icon svgIcon="check"
+                                            class="mr-2 text-xl"></mat-icon>OTP Sent Successfully</button>
+                                </div>
+                                <div class="flex flex-col space-y-5" *ngIf="otp_form.valid && isTimerRunning && !error_msg ">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-indigo-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300"
+                                        [disabled]="!isTimerRunning || !otp_form.valid">Submit</button>
+                                </div>
+                                <div class="flex flex-col space-y-5" *ngIf="isTimerRunning && otp_form.valid && error_msg && !otpstatus">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-indigo-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300" 
+                                       >Submit</button>
+                                </div>  
+                                <div class="flex flex-col space-y-5" *ngIf="!isTimerRunning && !otp_form.valid && error_msg && !otpstatus">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-indigo-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300" 
+                                       >Submits</button>
+                                </div>   
+                                 <div class="flex flex-col space-y-5" *ngIf="!error_msg && !isTimerRunning && otp_form.valid">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-indigo-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300" (click)="resendotp()"
+                                       >Resend OTP</button>
+                                </div>
+                                <div class="flex flex-col space-y-5" *ngIf="!error_msg && !isTimerRunning && !otp_form.valid">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-indigo-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300" (click)="resendotp()"
+                                       >Resend OTP</button>
+                                </div>
+                                <div class="flex flex-col space-y-5" *ngIf="error_msg && !isTimerRunning && otp_form.valid">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-indigo-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300" (click)="resendotp()"
+                                       >Resend OTP</button>
+                                </div>
+                                <div class="flex flex-col space-y-5" *ngIf="!error_msg && otpstatus">
+                                    <button type="submit"
+                                        class="disabled flex w-full justify-center rounded-md bg-green-600   px-5 py-3 text-base font-normal leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 disabled:bg-green-300" 
+                                       ><mat-icon svgIcon="reload-spinner" *ngIf="loading" class="mr-2 "></mat-icon>Redirecting to Reset Password in 00:05</button>
                                 </div>
                                 
-                                <div class="flex flex-col space-y-5" *ngIf=" !otp.valid ">
-                                    <button type="submit" 
-                                            class="disabled flex w-full justify-center rounded-md bg-green-600  px-3 py-1.5 text-sm font-normal leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-green-300" [disabled]="isTimerRunning==false || !otp.valid" >OTP Sent Successfully</button>
+                                
+                                  <div class="rounded-md bg-red-50 p-4" *ngIf="error_msg && showResponse">
+                                    <div class="flex">
+                                      <div class="flex-shrink-0">
+                                        <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+                                        </svg>
+                                      </div>
+                                      <div class="ml-3">
+                                        <span class="text-sm font-medium text-red-800">{{error_msg}}</span>
+                                      </div>
+                                    </div>
+                                  </div>
                                 </div>
-                                <!-- <div><button type="submit" *ngIf="isTimerRunning==false "
-                            class="disabled:bg-indigo-300 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-normal leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline disabled focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            [disabled]="isTimerRunning==false || !otp.valid" >Submit
-                            <mat-icon svgIcon="reload-spinner"  class="ml-2 mt-[3px]"></mat-icon>
-                           
-                            </button>
-                            </div> -->
-                            </div>
                         </form>
                         <!--form end-->
                     </div>
                 </div>
             </div>
-            </div>
         </div>
-        <app-footer></app-footer>
+    </div>
+    <app-footer></app-footer>
+</div>

@@ -241,4 +241,11 @@ export class SignupComponent implements OnInit {
     return /[0-9]/.test(this.password);
   }
 
+  /*Alert warnig msg close button*/
+  alertwarning = true;
+  reloadPageAfterDelay() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000); // Adjust the delay time as needed
+  }
 }

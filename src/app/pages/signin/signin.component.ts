@@ -41,20 +41,15 @@ export class SigninComponent implements OnInit{
     }
   }
   validateCredentials(email: string, password: string): void {
-
     this.http.post<any>(API_BASE_URL+'api/auth/login', { email: email, password: password })
     .subscribe(
         (response) => {
           // Handle successful response here
           if (response.success) {
-            localStorage.setItem('access_token', response.access_token); // Store the JWT in local storag 
-           console.log('access_token:', response.access_token);
-            // this.signInForm.reset();
-            // localStorage.setItem('access_token', response.access_token); 
-            // console.log('access_token:', response.access_token);
+            
           }else{
+            localStorage.setItem('access_token', response.access_token); // Store the JWT in local storag 
             this.signInForm.reset();
-          
             this.loading = true;
               setTimeout(() => {
                 // Redirect to a success page using Angular Router
@@ -68,8 +63,7 @@ export class SigninComponent implements OnInit{
           }
         },
         (error: HttpErrorResponse) => {
-         
-          this.signInForm.reset();
+         this.signInForm.reset();
           if(error.error instanceof ErrorEvent){
             // this.signInError400 = `Error ${error.error.message}`
              
@@ -85,9 +79,6 @@ export class SigninComponent implements OnInit{
 
            
           }
-          
-          
-          
         }
       );
   }
@@ -98,8 +89,6 @@ export class SigninComponent implements OnInit{
    togglePasswordVisibility() {
      this.passwordVisible = !this.passwordVisible;
    }
-  
-
   /*Alert warnig msg close button*/
   alertwarning = true;
   reloadPageAfterDelay() {
