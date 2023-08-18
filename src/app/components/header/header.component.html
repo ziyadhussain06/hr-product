@@ -17,7 +17,7 @@
             <a href="#" class="text-base font-normal leading-6 text-white">Pricing</a>
             <a  class="text-base font-normal leading-6 text-white border-r-2 pr-10">Features</a>
             <ng-container *ngIf="isSignUpPage(); else signInButton">
-            <span class="text-base font-normal leading-6 text-white">Already have an account? <a routerLink="/signin" routerLinkActive="active" ariaCurrentWhenActive="page" class=" underline font-medium">Login Here</a></span>
+            <span class="text-base font-normal leading-6 text-white">Already have an account? <a routerLink="/signin" routerLinkActive="active" ariaCurrentWhenActive="page" class=" underline font-medium">Login</a></span>
           </ng-container>
           <ng-template #signInButton>
             <span class="text-base font-normal leading-6 text-white">Need an Eazio account? <a routerLink="/signup" routerLinkActive="active" ariaCurrentWhenActive="page" class="font-medium underline">Create an account</a></span>
