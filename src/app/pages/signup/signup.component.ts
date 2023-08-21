@@ -41,7 +41,6 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit(): void {
-
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
       // Make an HTTP POST request to the Postname local API endpoint
@@ -56,12 +55,10 @@ export class SignupComponent implements OnInit {
             setTimeout(() => {
               // Redirect to a success page using Angular Router
               this.router.navigate(['/signin']);
-
               // Reload the current page after 3 seconds
               setTimeout(() => {
                 this.loading = false; // Set the loading state to false
                 window.location.reload();
-
               }, 3000);
             }, 2000);
           },
@@ -73,8 +70,6 @@ export class SignupComponent implements OnInit {
           }
         );
     }
-
-
   }
   /*email*/
   email: string = '';
@@ -112,6 +107,7 @@ export class SignupComponent implements OnInit {
             this.buttonDisabled = false;
           }
         }
+        
       );
 
   }
