@@ -1,4 +1,4 @@
-git remote add origin https://github.com/ziyadhussain06/eazio.git/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/*git remote add origin https://github.com/ziyadhussain06/eazio.git/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
