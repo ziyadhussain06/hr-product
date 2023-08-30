@@ -13,11 +13,11 @@ import { AuthGuard } from './AuthGuard/auth-guard.guard';
 
 const routes: Routes = [
   {path: 'signupconfirm/:email/:token', component : SignupConfirmationComponent },
-  { path: 'signin', component: SigninComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'signin', component: SigninComponent ,canActivate: [AuthGuard]},
+  { path: 'signup', component: SignupComponent ,canActivate: [AuthGuard] },
   { path: 'forgot', component: ForgotPasswordComponent },
   { path: 'otp', component: OtpComponent },
-  { path: 'onboarding', component: OnboardingComponent , canActivate: [AuthGuard]},
+  { path: 'onboarding', component: OnboardingComponent  ,canActivate: [AuthGuard]},
   { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'test', component: TestComponent },
   { path: '', redirectTo:'/signup', pathMatch: 'full'}

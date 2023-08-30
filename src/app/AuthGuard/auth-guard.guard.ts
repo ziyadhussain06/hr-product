@@ -17,10 +17,15 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.authService.IsloggedIn()) {
-      return true; // Allow access if authenticated
+      if (state.url === '/signin' || state.url === '/signup') {
+        return this.router.createUrlTree(['/onboarding']); // Redirect logged-in users to dashboard
+      }
+      return true; // Allow access for authenticated users to other routes
     } else {
-      // Redirect to login page or other appropriate route
-      return this.router.createUrlTree(['/signin']); // Replace with your login route
+      if (state.url === '/onboarding') {
+        return this.router.createUrlTree(['/signin']); // Redirect unauthenticated users from dashboard
+      }
+      return true; // Allow access for unauthenticated users to other routes
     }
   }
 
